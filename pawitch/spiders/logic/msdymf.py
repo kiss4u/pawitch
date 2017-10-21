@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from time import sleep
 from bs4 import BeautifulSoup
-from .tools import tmysql
-from .tools import turl
+from ..tools import *
 import re
 
 homeurl = 'http://www.dybee.cn'

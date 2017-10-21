@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-sys.path.append("..")
 from settings import MS_TYPE
 
 def main():

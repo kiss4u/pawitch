@@ -6,10 +6,8 @@ from redis import Redis
 from time import sleep
 from bs4 import BeautifulSoup
 from ..items import MovieItem
-from .tools import tmysql
-from .tools import turl
-from . import msdytt
-from . import msdymf
+from .tools import *
+from .logic import *
 
 class RedisSpider(RedisSpider):
     #子爬虫功能 
@@ -35,7 +33,7 @@ class RedisSpider(RedisSpider):
             elif msdymf.homeurl in response.url:
                 web2 = msdymf.logicDymf()
                 web2.parseSla(redis, response)
-            sleep(0.25)
+            #sleep(0.25)
             print('--------crawling-------- ' + response.url)
         else:
             print('--------already complete--------')

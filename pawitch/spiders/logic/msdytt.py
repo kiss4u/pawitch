@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from time import sleep
 from bs4 import BeautifulSoup
-from .tools import tmysql
-from .tools import turl
+from ..tools import *
 import re
 
 homeurl = 'http://www.dytt8.net/'
@@ -27,7 +26,7 @@ class logicDytt():
             #     r.lpush('mysprider:urls_request', self.url + pageUrl[-2])
             #     self.log(pageUrl, level=log.INFO)
             #     sleep(0.5)
-            
+
         # 当前页面待爬链接
         for urls in response.xpath('//b'):
             slaverurl = urls.xpath('a/@href').extract()

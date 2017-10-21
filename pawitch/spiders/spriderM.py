@@ -6,8 +6,7 @@ from redis import Redis
 from time import sleep
 from bs4 import BeautifulSoup
 from ..items import NextUrlsItem
-from . import msdytt
-from . import msdymf
+from .logic import *
 
 class RedisSpider(RedisSpider):
     #主爬虫功能 
