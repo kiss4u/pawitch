@@ -14,7 +14,6 @@ class PawitchItem(scrapy.Item):
     pass
 
 class NextUrlsItem(scrapy.Item):
-    seq = scrapy.Field() 
     title = scrapy.Field()
     url = scrapy.Field()
     pass

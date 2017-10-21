@@ -6,19 +6,21 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 from pawitch import settings
 
+#处理爬到的item信息
 class PawitchPipelineMaster(object):
 
     # 取待爬URL存到redis-request中待爬取
     # 已完成的存到redis-filter中过滤
     def process_item(self, item, spider):
-        if settings.MS_TYPE == 'type_master':
-            print('pip--------m')
+        # 根据配置执行
+        # if settings.MS_TYPE == 'type_master':
+        #     print('pip--------m')
         return item
 
 
 
 class PawitchPipelineSlaver(object):
     def process_item(self, item, spider):
-        if settings.MS_TYPE == 'type_slaver':
-            print('pip--------s')
+        # if settings.MS_TYPE == 'type_slaver':
+        #     print('pip--------s')
         return item

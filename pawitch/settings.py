@@ -15,20 +15,20 @@ BOT_NAME = 'pawitch'
 SPIDER_MODULES = ['pawitch.spiders']
 NEWSPIDER_MODULE = 'pawitch.spiders'
 
-# master/slaver标志
+# master、slaver标志
 MS_TYPE = 'type_master'
 #MS_TYPE = type_slaver
-
-#连接redis使用
-REDIS_HOST = 'localhost'
-REDIS_PORT = 6379
-# slaver使用
-#REDIS_URL = 'redis://192.168.1.112:6379'
 
 # master/slaver名字
 MS_NAME = 'slaver_1'
 
-# mysql
+# Redis配置
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+# slaver使用，主机Redis地址
+#REDIS_URL = 'redis://192.168.1.112:6379'
+
+# mysql配置
 DBHOST='127.0.0.1'  
 DBPORT=3306 
 DBUSER='root'
@@ -43,10 +43,10 @@ ITEM_PIPELINES = {
 }
 
 # 图片存储路径
-IMAGES_STORE = 'F:\spiders\ff\getmovie'
+#IMAGES_STORE = ''
 
-# 日志 现使用logging替代
-#LOG_FILE = 'E://runtime\Pywork\myspider\pawitch\log.txt'
+# 日志路径 现使用logging替代
+#LOG_FILE = ''
 
 # 下载间隔
 DOWNLOAD_DELAY = 0.25
@@ -94,10 +94,10 @@ MY_USER_AGENT = [
 USER_AGENT = '%s'%random.choice(MY_USER_AGENT)
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
-#111111111111111111111111111111111断点
-JOBDIR = 'temp'
+# 开启续爬，存放地址temp文件夹，不靠谱
+#JOBDIR = 'temp'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
