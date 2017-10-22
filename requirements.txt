@@ -1,0 +1,5 @@
+scrapy_redis==0.6.8
+PyMySQL==0.7.11
+redis==2.10.6
+beautifulsoup4==4.6.0
+scrapy==1.4.0
