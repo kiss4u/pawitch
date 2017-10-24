@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
-from scrapy_redis.spiders import RedisSpider
-import scrapy
 import re
+import logging
+import scrapy
+from scrapy_redis.spiders import RedisSpider
 from redis import Redis
 from time import sleep
 from bs4 import BeautifulSoup
 from ..items import MovieItem
-from .tools import *
 from .logic import *
+from .tools import *
+
+logger = logging.getLogger('spridersla')
 
 class RedisSpider(RedisSpider):
     #子爬虫功能 
@@ -24,18 +27,22 @@ class RedisSpider(RedisSpider):
     def parse(self, response):
         redis = Redis()
         item = MovieItem()
-        #如果url未被爬过，则执行
-        if redis.sismember('mysprider:urls_filter', response.url) == 0:
-            #爬取页面内容
-            if msdytt.homeurl in response.url:
-                web1 = msdytt.logicDytt()
-                web1.parseSla(redis, response)
-            elif msdymf.homeurl in response.url:
-                web2 = msdymf.logicDymf()
-                web2.parseSla(redis, response)
-            #sleep(0.25)
-            print('--------crawling-------- ' + response.url)
-        else:
-            print('--------already complete--------')
+        
+        try:
+            #如果url未被爬过，则执行
+            if redis.sismember('mysprider:urls_filter', response.url) == 0:
+                #爬取页面内容
+                if msdytt.homeurl in response.url:
+                    web1 = msdytt.logicDytt()
+                    web1.parseSla(redis, response)
+                elif msdymf.homeurl in response.url:
+                    web2 = msdymf.logicDymf()
+                    web2.parseSla(redis, response)
+                #sleep(0.25)
+                logger.info('crawling ' + response.url)
+            else:
+                logger.warning('already complete ' + response.url)
+        except Exception as e:
+            logger.error(e)
 
         yield item

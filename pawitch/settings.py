@@ -45,11 +45,13 @@ ITEM_PIPELINES = {
 # 图片存储路径
 #IMAGES_STORE = ''
 
-# 日志路径 现使用logging替代
-#LOG_FILE = ''
+# log相关
+#LOG_FILE = 'log/run.log'
+LOG_LEVEL = 'INFO'
+LOG_ENCODING = 'utf-8'
 
-# 下载间隔
-DOWNLOAD_DELAY = 0.25
+# 续爬记录，存放地址temp文件夹
+#JOBDIR = 'temp'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 MY_USER_AGENT = [
@@ -96,16 +98,13 @@ USER_AGENT = '%s'%random.choice(MY_USER_AGENT)
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-# 开启续爬，存放地址temp文件夹，不靠谱
-#JOBDIR = 'temp'
-
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 0.25
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16

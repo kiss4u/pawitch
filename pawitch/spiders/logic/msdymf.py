@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+import re
 from time import sleep
 from bs4 import BeautifulSoup
 from ..tools import *
-import re
 
 homeurl = 'http://www.dybee.cn'
 

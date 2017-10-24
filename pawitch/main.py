@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import logging
 from settings import MS_TYPE
 
 def main():
@@ -9,7 +10,7 @@ def main():
     elif MS_TYPE == 'type_slaver':
         SlaverStart()
     else:
-        print('------start failed, setting error------')
+        print('------start failed, type setting error------')
 
 
 def MasterStart():
